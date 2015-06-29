@@ -1,2 +1,2 @@
 # zshrc
-M
+my personal .zshrc
