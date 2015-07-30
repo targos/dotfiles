@@ -59,10 +59,12 @@ alias telegram=~/Telegram/Telegram
 
 # Node
 export NODE_REPL_HISTORY_FILE='/home/mzasso/.node_history'
-nvm use iojs
 
 # Private stuff
 source /home/mzasso/.zshrc_private
+
+# z.sh (https://github.com/rupa/z)
+source /home/mzasso/z.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
