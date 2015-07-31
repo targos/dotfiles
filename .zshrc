@@ -56,6 +56,7 @@ source $ZSH/oh-my-zsh.sh
 # Software aliases
 alias chrome-file='google-chrome --allow-file-access-from-files'
 alias telegram=~/Telegram/Telegram
+alias yum=dnf
 
 # Node
 export NODE_REPL_HISTORY_FILE='/home/mzasso/.node_history'
