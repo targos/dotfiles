@@ -51,21 +51,21 @@ plugins=(git github npm nvm web-search)
 
 export PATH="/home/mzasso/emsdk_portable:/home/mzasso/emsdk_portable/clang/fastcomp/build_master_64/bin:/home/mzasso/emsdk_portable/emscripten/master:/home/mzasso/git/chromium/depot_tools:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/mzasso/bin:/usr/local/go/bin"
 
-source $ZSH/oh-my-zsh.sh
+export NVM_DIR="/home/mzasso/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # Software aliases
 alias chrome-file='google-chrome --allow-file-access-from-files'
 alias telegram=~/Telegram/Telegram
 alias yum=dnf
 
-# Node
-export NODE_REPL_HISTORY_FILE='/home/mzasso/.node_history'
-
 # Private stuff
 source /home/mzasso/.zshrc_private
 
 # z.sh (https://github.com/rupa/z)
 source /home/mzasso/z.sh
+
+source $ZSH/oh-my-zsh.sh
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
