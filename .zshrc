@@ -21,6 +21,7 @@ export NVM_DIR="/home/mzasso/.nvm"
 alias chrome-file='google-chrome --allow-file-access-from-files'
 alias telegram=~/Telegram/Telegram
 alias yum=dnf
+alias more=less
 
 # Private stuff
 source /home/mzasso/.zshrc_private
