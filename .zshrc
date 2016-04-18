@@ -12,7 +12,7 @@ plugins=(git github npm nvm web-search thefuck)
 
 # User configuration
 
-export PATH="/home/mzasso/emsdk_portable:/home/mzasso/emsdk_portable/clang/fastcomp/build_master_64/bin:/home/mzasso/emsdk_portable/emscripten/master:/home/mzasso/git/chromium/depot_tools:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/mzasso/bin:/usr/local/go/bin"
+export PATH="/home/mzasso/emsdk_portable:/home/mzasso/emsdk_portable/clang/fastcomp/build_master_64/bin:/home/mzasso/emsdk_portable/emscripten/master:/home/mzasso/git/chromium/depot_tools:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/mzasso/bin:/usr/local/go/bin:./node_modules/.bin"
 
 export NVM_DIR="/home/mzasso/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
