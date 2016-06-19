@@ -2,7 +2,7 @@
 export ZSH=/home/mzasso/.oh-my-zsh
 
 # Name of the theme to load.
-ZSH_THEME="kolo"
+ZSH_THEME="ys"
 
 # Uncomment the following line to change how often to auto-update (in days).
 export UPDATE_ZSH_DAYS=7
