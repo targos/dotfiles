@@ -13,7 +13,7 @@ plugins=(git github npm nvm web-search dnf encode64 common-aliases gpg-agent htt
 # User configuration
 
 export EDITOR=vim
-export PATH="/home/mzasso/git/depot_tools:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/mzasso/bin:/usr/local/go/bin:./node_modules/.bin"
+export PATH="./node_modules/.bin:/home/mzasso/git/depot_tools:/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/home/mzasso/bin:/usr/local/go/bin"
 
 export NVM_DIR="/home/mzasso/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
