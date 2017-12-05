@@ -8,7 +8,7 @@ ZSH_THEME="ys"
 export UPDATE_ZSH_DAYS=7
 
 # Plugins to load
-plugins=(git github npm nvm web-search dnf encode64 gpg-agent httpie docker docker-compose node yarn)
+plugins=(git github npm nvm web-search dnf encode64 gpg-agent httpie docker docker-compose node yarn zsh-nvm)
 
 # User configuration
 
