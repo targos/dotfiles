@@ -1,0 +1,12 @@
+[user]
+	name = Michaël Zasso
+	email = targos@protonmail.com
+	signingkey = 5AE15600
+[color]
+	ui = true
+[http]
+	cookiefile = /home/mzasso/.gitcookies
+[core]
+	excludesfile = /home/mzasso/.gitignore_global
+[commit]
+  gpgsign = true
