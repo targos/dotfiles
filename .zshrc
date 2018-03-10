@@ -9,6 +9,7 @@ plugins=(
   node
   npm
   nvm
+  z
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -33,9 +34,6 @@ function mkcd {
 function npmU {
   rm -rf node_modules && rm package-lock.json && npm i
 }
-
-# z.sh (https://github.com/rupa/z)
-source /home/mzasso/z.sh
 
 # Auto-added configuration
 
