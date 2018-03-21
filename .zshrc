@@ -22,10 +22,13 @@ export LC_CTYPE=en_US.UTF-8
 export PATH="/home/mzasso/git/chromium/depot_tools:${PATH}"
 export PATH="/usr/lib64/ccache:/usr/lib/ccache:${PATH}"
 export GPG_TTY=$(tty)
+export NODE_PENDING_DEPRECATION=1
 
 alias more=less
 alias git=hub
 alias gcud="git commit -m'chore: update dependencies'"
+alias mtv="make test -j8 V="
+alias ntw="NODE_OPTIONS='--trace-warnings'"
 
 ulimit -u unlimited
 
@@ -42,3 +45,7 @@ function npmU {
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/mzasso/.sdkman"
+[[ -s "/home/mzasso/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mzasso/.sdkman/bin/sdkman-init.sh"
