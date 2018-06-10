@@ -26,6 +26,7 @@ export GPG_TTY=$(tty)
 alias more=less
 alias git=hub
 alias gcud="git commit -m'chore: update dependencies'"
+alias grup="git remote update -p"
 
 ulimit -u unlimited
 
