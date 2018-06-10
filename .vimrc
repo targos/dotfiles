@@ -16,3 +16,6 @@ filetype plugin indent on
 " Show line numbers
 set number
 autocmd BufNewFile,BufRead .*,COMMIT_EDITMSG set nonumber
+
+" Highlight search
+set hlsearch
