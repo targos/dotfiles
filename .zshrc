@@ -23,10 +23,14 @@ export PATH="/home/mzasso/git/chromium/depot_tools:${PATH}"
 export PATH="/usr/lib64/ccache:/usr/lib/ccache:${PATH}"
 export GPG_TTY=$(tty)
 
+alias gpg=gpg2
 alias more=less
-alias git=hub
 alias gcud="git commit -m'chore: update dependencies'"
 alias grup="git remote update -p"
+
+hash -d -- node=~/git/nodejs/node
+hash -d -- v8=~/git/chromium/v8/v8
+hash -d -- test=~/test
 
 ulimit -u unlimited
 
