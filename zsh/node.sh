@@ -21,3 +21,11 @@ function nbda {
   echo "Running branch-diff and cherry-picking for $BRANCH"
   branch-diff ${BRANCH}-staging upstream/master --exclude-label=semver-major,dont-land-on-${BRANCH},backport-requested-${BRANCH},backported-to-${BRANCH} --filter-release --format=sha --reverse | xargs git cherry-pick
 }
+
+# update canary branch
+function nuc {
+  git remote update -p
+  git reset --hard upstream/master
+  git node v8 major
+  git cherry-pick `git log upstream/canary-base -1 --format=format:%H --grep "src: update NODE_MODULE_VERSION"`...upstream/canary-base
+}
