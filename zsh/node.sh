@@ -32,5 +32,5 @@ function nuc {
 
 # apply a change from GitHub
 function nac {
-  curl -L "$1.patch" | git am
+  curl -L "$1.patch" | git am -3
 }
