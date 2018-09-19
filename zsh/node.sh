@@ -29,3 +29,8 @@ function nuc {
   git node v8 major
   git cherry-pick `git log upstream/canary-base -1 --format=format:%H --grep "src: update NODE_MODULE_VERSION"`...upstream/canary-base
 }
+
+# apply a change from GitHub
+function nac {
+  curl -L "$1.patch" | git am
+}
