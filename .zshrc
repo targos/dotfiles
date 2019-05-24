@@ -27,6 +27,9 @@ alias gpg=gpg2
 alias more=less
 alias gcud="git commit -m'chore: update dependencies'"
 alias grup="git remote update -p"
+alias gm="~/git/chromium/v8/v8/tools/dev/gm.py"
+alias esm-on="export NODE_OPTIONS=\"--experimental-modules\""
+alias esm-off="export NODE_OPTIONS="
 
 hash -d -- node=~/git/nodejs/node
 hash -d -- v8=~/git/chromium/v8/v8
