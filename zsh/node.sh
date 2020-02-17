@@ -22,6 +22,22 @@ function nbda {
   branch-diff ${BRANCH}-staging upstream/master --exclude-label=semver-major,dont-land-on-${BRANCH},backport-requested-${BRANCH},backported-to-${BRANCH},backport-blocked-${BRANCH} --filter-release --format=sha --reverse | xargs git cherry-pick
 }
 
+# branch-diff for staging LTS
+function nbd-lts {
+  BRANCH=$1
+  REF=$2
+  echo "Running branch-diff for $BRANCH"
+  branch-diff ${BRANCH}-staging $REF --exclude-label=semver-major,semver-minor,dont-land-on-${BRANCH},backport-requested-${BRANCH},backported-to-${BRANCH},backport-blocked-${BRANCH},baking-for-lts --filter-release --format=simple
+}
+
+# branch-diff for staging LTS (minor)
+function nbd-lts-minor {
+  BRANCH=$1
+  REF=$2
+  echo "Running branch-diff for $BRANCH"
+  branch-diff ${BRANCH}-staging $REF --exclude-label=semver-major,dont-land-on-${BRANCH},backport-requested-${BRANCH},backported-to-${BRANCH},backport-blocked-${BRANCH},baking-for-lts --filter-release --format=simple
+}
+
 # update canary branch
 function nuc {
   git remote update -p
