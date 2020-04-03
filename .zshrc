@@ -22,6 +22,8 @@ export LC_CTYPE=en_US.UTF-8
 export PATH="/home/mzasso/git/chromium/depot_tools:${PATH}"
 export PATH="/usr/lib64/ccache:/usr/lib/ccache:${PATH}"
 export GPG_TTY=$(tty)
+# https://github.com/scarf-sh/scarf-js
+export SCARF_ANALYTICS=false
 
 alias gpg=gpg2
 alias more=less
