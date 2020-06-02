@@ -40,13 +40,14 @@ function nbd-lts-minor {
 
 # update canary branch
 function nuc {
-  git remote update -p
+  git remote update upstream -p
   git reset --hard upstream/master
   git node v8 major
   git cherry-pick `git log upstream/canary-base -1 --format=format:%H --grep "src: update NODE_MODULE_VERSION"`...upstream/canary-base
 }
 
-# apply a patch from GitHub URL
-function gap {
+# Apply a patch from GitHub URL
+# usage: nac <url>
+function nac {
   curl -L "$1.patch" | git am -3
 }

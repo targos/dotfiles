@@ -25,6 +25,7 @@ export GPG_TTY=$(tty)
 # https://github.com/scarf-sh/scarf-js
 export SCARF_ANALYTICS=false
 
+alias cat=bat
 alias gpg=gpg2
 alias more=less
 alias gcud="git commit -m'chore: update dependencies'"
