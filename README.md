@@ -1,3 +1,3 @@
-# dot-files
+# dotfiles
 
-My personal dot-files for Linux.
+My personal dotfiles for Linux.
