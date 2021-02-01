@@ -1,4 +1,4 @@
-export ZSH=/home/mzasso/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 export UPDATE_ZSH_DAYS=7
 
 ZSH_THEME="ys"
@@ -8,7 +8,6 @@ plugins=(
   git
   node
   npm
-  nvm
   z
 )
 
@@ -16,11 +15,15 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+eval $(/opt/homebrew/bin/brew shellenv)
 export EDITOR=vim
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
-export PATH="/home/mzasso/git/chromium/depot_tools:${PATH}"
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+export PATH="$HOME/git/chromium/depot_tools:${PATH}"
 export PATH="/usr/lib64/ccache:/usr/lib/ccache:${PATH}"
+export PATH="/Library/Frameworks/Python.framework/Versions/3.9/bin:${PATH}"
 export GPG_TTY=$(tty)
 # https://github.com/scarf-sh/scarf-js
 export SCARF_ANALYTICS=false
@@ -28,8 +31,6 @@ export SCARF_ANALYTICS=false
 alias cat=bat
 alias gpg=gpg2
 alias more=less
-alias gcud="git commit -m'chore: update dependencies'"
-alias grup="git remote update -p"
 alias gm="~/git/chromium/v8/v8/tools/dev/gm.py"
 
 hash -d -- node=~/git/nodejs/node
@@ -46,14 +47,4 @@ function npmU {
   rm -rf node_modules && rm package-lock.json && npm i
 }
 
-source ~/git/targos/dot-files/zsh/node.sh
-
-# Auto-added configuration
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/mzasso/.sdkman"
-[[ -s "/home/mzasso/.sdkman/bin/sdkman-init.sh" ]] && source "/home/mzasso/.sdkman/bin/sdkman-init.sh"
+source ~/git/targos/dotfiles/zsh/node.sh
