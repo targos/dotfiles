@@ -2,11 +2,11 @@
 if [[ -d "/Users" ]]
 then
   PLATFORM=mac
-  DOTFILES_DIR=$HOME/git/targos/dotfiles
 else
   PLATFORM=linux
-  DOTFILES_DIR=$(dirname $(readlink $HOME/.zshrc))
 fi
+
+DOTFILES_DIR=$(dirname $(readlink $HOME/.zshrc))
 
 # Load ZSH
 export ZSH=$HOME/.oh-my-zsh
