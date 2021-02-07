@@ -3,7 +3,7 @@
 set -e
 
 # Detect whether we are on Mac or Linux
-if [[ -d "/Users" ]]; then
+if [[ "$(uname -s)" = "Darwin" ]]; then
   PLATFORM=mac
   DOTFILES_DIR="$HOME/git/targos/dotfiles"
 else
