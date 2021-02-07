@@ -1,3 +1,3 @@
 # dotfiles
 
-My personal dotfiles for Linux.
+My personal dotfiles for Linux and Mac.
