@@ -1,6 +1,5 @@
 # Detect whether we are on Mac or Linux
-if [[ -d "/Users" ]]
-then
+if [[ -d "/Users" ]]; then
   PLATFORM=mac
 else
   PLATFORM=linux
@@ -70,7 +69,6 @@ ulimit -u unlimited
 source $DOTFILES_DIR/zsh/node.sh
 
 # Optionally run local script
-if [[ -f "$HOME/.zshrc_local" ]]
-then
+if [[ -f "$HOME/.zshrc_local" ]]; then
   source $HOME/.zshrc_local
 fi
