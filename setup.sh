@@ -53,8 +53,4 @@ ensure-symlink .vimrc
 install-oh-my-zsh
 install-volta
 
-if [[ $PLATFORM = "mac" ]]; then
-  echo "mac-specific"
-fi
-
 echo "Setup complete"
