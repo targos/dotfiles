@@ -25,6 +25,11 @@ function ensure-symlink {
   fi
 
   DESTINATION="$HOME/$DESTINATION_INPUT"
+  if [[ -f "$DESTINATION" && ! -h "$DESTINATION" ]]; then
+    # If the file is not a symlink, move it.
+    echo "Moving existing file from $DESTINATION to ${DESTINATION}.old"
+    mv "$DESTINATION" "${DESTINATION}.old"
+  fi
   if [[ ! -a "$DESTINATION" ]]; then
     echo "Creating symlink for $DESTINATION"
     ln -s "$SOURCE" "$DESTINATION"
