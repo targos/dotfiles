@@ -13,11 +13,7 @@ fi
 
 function ensure-symlink {
   SOURCE_INPUT="$1"
-  DESTINATION_INPUT="$2"
-
-  if [[ -z "$DESTINATION_INPUT" ]]; then
-    DESTINATION_INPUT="$SOURCE_INPUT"
-  fi
+  DESTINATION_INPUT=${2:-$SOURCE_INPUT}
 
   SOURCE="$DOTFILES_DIR/$SOURCE_INPUT"
   if [[ ! -f "$SOURCE" ]]; then
