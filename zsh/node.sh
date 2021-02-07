@@ -1,10 +1,10 @@
-#export NODE_PENDING_DEPRECATION=1
+export NODE_PENDING_DEPRECATION=1
 
 # run tests from last PR
 alias ngt='tools/test.py -J `git show --name-only --pretty="" | grep 'test/'`'
 
 # compile and test
-alias mtv="make test -j12 V="
+alias mtv="make test -j8 V="
 
 alias ntw="NODE_OPTIONS='--trace-warnings'"
 

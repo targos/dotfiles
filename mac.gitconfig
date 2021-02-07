@@ -5,16 +5,12 @@
 [color]
 	ui = true
 [http]
-	cookiefile = /home/mzasso/.gitcookies
+	cookiefile = ~/.gitcookies
 [core]
-	excludesfile = /home/mzasso/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [commit]
   gpgsign = true
-[gpg]
-	program = gpg2
 [push]
 	default = simple
 [help]
   autocorrect = 1
-[url "git@github.com:"]
-    insteadOf = "https://github.com/"
