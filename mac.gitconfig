@@ -9,8 +9,12 @@
 [core]
 	excludesfile = ~/.gitignore_global
 [commit]
-  gpgsign = true
+	gpgsign = true
 [push]
 	default = simple
 [help]
-  autocorrect = 1
+	autocorrect = 1
+[pull]
+	rebase = true
+
+# Mac-specific

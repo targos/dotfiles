@@ -9,10 +9,14 @@
 [core]
 	excludesfile = ~/.gitignore_global
 [commit]
-  gpgsign = true
-[gpg]
-	program = gpg2
+	gpgsign = true
 [push]
 	default = simple
 [help]
-  autocorrect = 1
+	autocorrect = 1
+[pull]
+	rebase = true
+
+# Linux-specific
+[gpg]
+	program = gpg2
