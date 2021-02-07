@@ -1,10 +1,10 @@
 # Detect whether we are on Mac or Linux
 if [[ -d "/Users" ]]
 then
-  SYSTEM=mac
+  PLATFORM=mac
   DOTFILES_DIR=$HOME/git/targos/dotfiles
 else
-  SYSTEM=linux
+  PLATFORM=linux
   DOTFILES_DIR=$(dirname $(readlink $HOME/.zshrc))
 fi
 
