@@ -7,6 +7,8 @@ alias ngt='tools/test.py -J `git show --name-only --pretty="" | grep 'test/'`'
 # compile and test
 alias mtv="make test -j8 V="
 
+alias gnv8="git node v8 --v8-dir ~/git/chromium/v8/v8"
+
 # branch-diff for staging
 function nbd {
   BRANCH=$1
@@ -41,7 +43,7 @@ function nbd-lts-minor {
 function nuc {
   git remote update upstream -p
   git reset --hard upstream/master
-  git node v8 major
+  gnv8 major
   git cherry-pick `git log upstream/canary-base -1 --format=format:%H --grep "src: update NODE_MODULE_VERSION"`...upstream/canary-base
 }
 
