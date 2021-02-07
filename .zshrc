@@ -2,10 +2,10 @@
 if [[ -d "/Users" ]]
 then
   SYSTEM=mac
-  DOTFILES_DIR=~/git/targos/dotfiles
+  DOTFILES_DIR=$HOME/git/targos/dotfiles
 else
   SYSTEM=linux
-  DOTFILES_DIR=$(dirname $(readlink ~/.zshrc))
+  DOTFILES_DIR=$(dirname $(readlink $HOME/.zshrc))
 fi
 
 # Load ZSH
@@ -46,17 +46,19 @@ fi
 
 # Command aliases
 alias cat=bat
+alias gm="$HOME/git/chromium/v8/v8/tools/dev/gm.py"
 alias more=less
-alias gm="~/git/chromium/v8/v8/tools/dev/gm.py"
+alias python=python3
+
 if [[ $PLATFORM = "linux" ]]; then
   alias gpg=gpg2
 fi
 #end Command aliases
 
 # Directory shortcuts
-hash -d -- node=~/git/nodejs/node
-hash -d -- v8=~/git/chromium/v8/v8
-hash -d -- test=~/test
+hash -d -- node=$HOME/git/nodejs/node
+hash -d -- v8=$HOME/git/chromium/v8/v8
+hash -d -- test=$HOME/test
 #end Directory shortcuts
 
 function mkcd {
@@ -66,3 +68,9 @@ function mkcd {
 ulimit -u unlimited
 
 source $DOTFILES_DIR/zsh/node.sh
+
+# Optionally run local script
+if [[ -f "$HOME/.zshrc_local" ]]
+then
+  source $HOME/.zshrc_local
+fi
