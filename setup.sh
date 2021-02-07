@@ -39,6 +39,8 @@ function ensure-symlink {
 function install-oh-my-zsh {
   if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
     echo "Installing Oh My Zsh"
+    export RUNZSH=no
+    export KEEP_ZSHRC=yes
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   fi
 }
