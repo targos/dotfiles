@@ -39,7 +39,7 @@ if [[ $PLATFORM = "linux" ]]; then
   export PATH="/usr/lib64/ccache:/usr/lib/ccache:${PATH}"
 else
   eval $(/opt/homebrew/bin/brew shellenv)
-  export PATH="/opt/homebrew/Cellar/ccache/4.1/libexec:${PATH}"
+  export PATH="/opt/homebrew/opt/ccache/libexec:${PATH}"
 fi
 #end Setup env
 
@@ -71,4 +71,8 @@ source $DOTFILES_DIR/zsh/node.sh
 # Optionally run local script
 if [[ -f "$HOME/.zshrc_local" ]]; then
   source $HOME/.zshrc_local
+fi
+
+if [[ $PLATFORM = "mac" ]]; then
+  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
