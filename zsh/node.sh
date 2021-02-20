@@ -1,5 +1,31 @@
-export NODE_PENDING_DEPRECATION=1
-export NODE_OPTIONS=" --trace-warnings "
+function node-deprecations {
+  export NODE_PENDING_DEPRECATION=1
+}
+
+function node-no-deprecations {
+  export NODE_PENDING_DEPRECATION=0
+}
+
+node-deprecations
+
+function node-options-print {
+  echo "NODE_OPTIONS=\"${NODE_OPTIONS}\""
+}
+
+function node-options-clear {
+  export NODE_OPTIONS=""
+}
+
+function node-options-reset {
+  export NODE_OPTIONS="--trace-warnings"
+}
+
+function node-options-add {
+  export NODE_OPTIONS="${NODE_OPTIONS} $1"
+  node-options-print
+}
+
+node-options-reset
 
 # run tests from last PR
 alias ngt='tools/test.py -J `git show --name-only --pretty="" | grep 'test/'`'
@@ -51,4 +77,12 @@ function nuc {
 # usage: nac <url>
 function nac {
   curl -L "$1.patch" | git am -3
+}
+
+function ncu-move {
+  mv "${HOME}/.ncurc" "${HOME}/.ncurc_tmp"
+}
+
+function ncu-restore {
+  mv "${HOME}/.ncurc_tmp" "${HOME}/.ncurc"
 }
