@@ -16,5 +16,7 @@
 	autocorrect = 1
 [pull]
 	rebase = true
+[init]
+	defaultBranch = main
 
 # Mac-specific
