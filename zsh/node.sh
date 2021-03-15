@@ -73,6 +73,15 @@ function nuc {
   git cherry-pick `git log upstream/canary-base -1 --format=format:%H --grep "src: update NODE_MODULE_VERSION"`...upstream/canary-base
 }
 
+# do a diff on V8's GN files from a commit
+function gndiff {
+  git diff $1..HEAD **/*.gn*
+}
+
+function gnlog {
+  git log $1..HEAD **/*.gn*
+}
+
 # Apply a patch from GitHub URL
 # usage: nac <url>
 function nac {
