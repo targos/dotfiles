@@ -34,6 +34,8 @@ export PATH="${HOME}/git/chromium/depot_tools:${PATH}"
 export GPG_TTY=$(tty)
 # https://github.com/scarf-sh/scarf-js
 export SCARF_ANALYTICS=false
+# https://nextjs.org/telemetry#how-do-i-opt-out
+export NEXT_TELEMETRY_DISABLED=1
 
 if [[ $PLATFORM = "linux" ]]; then
   export PATH="/usr/lib64/ccache:/usr/lib/ccache:${PATH}"
