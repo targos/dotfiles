@@ -42,6 +42,7 @@ if [[ $PLATFORM = "linux" ]]; then
 else
   eval $(/opt/homebrew/bin/brew shellenv)
   export PATH="/opt/homebrew/opt/ccache/libexec:${PATH}"
+  export PATH="/opt/homebrew/opt/python/libexec/bin:${PATH}"
 fi
 #end Setup env
 
@@ -49,7 +50,6 @@ fi
 alias cat=bat
 alias gm="${HOME}/git/chromium/v8/v8/tools/dev/gm.py"
 alias more=less
-alias python=python3
 
 if [[ $PLATFORM = "linux" ]]; then
   alias gpg=gpg2
