@@ -88,6 +88,12 @@ function nac {
   curl -L "$1.patch" | git am -3
 }
 
+# Apply a patch from GitHub URL in the deps/v8 directory
+# usage: nac-v8 <url>
+function nac-v8 {
+  curl -L "$1.patch" | git am -3 --directory=deps/v8
+}
+
 function ncu-move {
   mv "${HOME}/.ncurc" "${HOME}/.ncurc_tmp"
 }
