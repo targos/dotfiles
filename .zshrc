@@ -76,9 +76,9 @@ source "${DOTFILES_DIR}/zsh/node.sh"
 # Optionally run local script
 test -e "${HOME}/.zshrc_local" && source "${HOME}/.zshrc_local"
 
-if [[ $PLATFORM = "mac" ]]; then
-  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-fi
+# Setup iTerm2 Shell Integration if installed
+# If `hostname -f` doesn't return the right host name, add `export iterm2_hostname=hostname` to `~/.zshrc_local`
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '${HOME}/google-cloud-sdk/path.zsh.inc' ]; then . '${HOME}/google-cloud-sdk/path.zsh.inc'; fi
