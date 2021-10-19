@@ -16,6 +16,7 @@ ZSH_THEME="ys"
 plugins=(
   dnf
   git
+  gh
   node
   npm
   z
@@ -25,7 +26,11 @@ source "${ZSH}/oh-my-zsh.sh"
 #end Load ZSH
 
 # Setup env
-export EDITOR=vim
+if [[ $PLATFORM = "mac" ]]; then
+  export EDITOR="code-insiders --wait"
+else
+  export EDITOR=vim
+fi
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export VOLTA_HOME="${HOME}/.volta"
@@ -43,6 +48,7 @@ else
   eval $(/opt/homebrew/bin/brew shellenv)
   export PATH="/opt/homebrew/opt/ccache/libexec:${PATH}"
   export PATH="/opt/homebrew/opt/python/libexec/bin:${PATH}"
+  export PATH="/opt/homebrew/opt/openjdk/bin:${PATH}"
 fi
 #end Setup env
 
@@ -76,3 +82,9 @@ test -e "${HOME}/.zshrc_local" && source "${HOME}/.zshrc_local"
 if [[ $PLATFORM = "mac" ]]; then
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '${HOME}/google-cloud-sdk/path.zsh.inc' ]; then . '${HOME}/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '${HOME}/google-cloud-sdk/completion.zsh.inc' ]; then . '${HOME}/google-cloud-sdk/completion.zsh.inc'; fi
