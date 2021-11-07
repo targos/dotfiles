@@ -19,6 +19,7 @@ plugins=(
   gh
   node
   npm
+  macos
   z
 )
 
@@ -26,11 +27,7 @@ source "${ZSH}/oh-my-zsh.sh"
 #end Load ZSH
 
 # Setup env
-if [[ $PLATFORM = "mac" ]]; then
-  export EDITOR="code-insiders --wait"
-else
-  export EDITOR=vim
-fi
+export EDITOR="vim"
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export VOLTA_HOME="${HOME}/.volta"
