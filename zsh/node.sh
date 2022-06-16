@@ -39,14 +39,14 @@ alias gnv8="git node v8 --v8-dir ~/git/chromium/v8/v8"
 function nbd {
   BRANCH=$1
   echo "Running branch-diff for $BRANCH"
-  branch-diff ${BRANCH}-staging upstream/master --exclude-label=semver-major,dont-land-on-${BRANCH},backport-requested-${BRANCH},backported-to-${BRANCH},backport-blocked-${BRANCH},backport-open-${BRANCH} --filter-release --format=simple
+  branch-diff ${BRANCH}-staging upstream/main --exclude-label=semver-major,dont-land-on-${BRANCH},backport-requested-${BRANCH},backported-to-${BRANCH},backport-blocked-${BRANCH},backport-open-${BRANCH} --filter-release --format=simple
 }
 
 # branch-diff and apply
 function nbda {
   BRANCH=$1
   echo "Running branch-diff and cherry-picking for $BRANCH"
-  branch-diff ${BRANCH}-staging upstream/master --exclude-label=semver-major,dont-land-on-${BRANCH},backport-requested-${BRANCH},backported-to-${BRANCH},backport-blocked-${BRANCH},backport-open-${BRANCH} --filter-release --format=sha --reverse | xargs git cherry-pick
+  branch-diff ${BRANCH}-staging upstream/main --exclude-label=semver-major,dont-land-on-${BRANCH},backport-requested-${BRANCH},backported-to-${BRANCH},backport-blocked-${BRANCH},backport-open-${BRANCH} --filter-release --format=sha --reverse | xargs git cherry-pick
 }
 
 # branch-diff for staging LTS
@@ -68,7 +68,7 @@ function nbd-lts-minor {
 # update canary branch
 function nuc {
   git remote update upstream -p
-  git reset --hard upstream/master
+  git reset --hard upstream/main
   gnv8 major
   git cherry-pick `git log upstream/canary-base -1 --format=format:%H --grep "src: update NODE_MODULE_VERSION"`...upstream/canary-base
 }
