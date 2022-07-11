@@ -110,7 +110,7 @@ set noswapfile
 set laststatus=2
 
 " Allow copy and paste from system clipboard
-set clipboard=unnamed
+" set clipboard=unnamed
 
 " Spellcheck for markdown
 au BufRead,BufNewFile *.md setlocal spell
