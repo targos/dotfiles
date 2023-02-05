@@ -1,3 +1,6 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+
 # Detect whether we are on Mac or Linux
 if [[ "$(uname -s)" = "Darwin" ]]; then
   PLATFORM=mac
@@ -50,7 +53,18 @@ fi
 #end Setup env
 
 # Command aliases
-alias cat=bat
+function maybe-alias {
+  if ! command -v "$2" > /dev/null;
+  then
+    echo "Missing command $2. Cannot alias $1=$2"
+  else
+    alias "$1"="$2"
+  fi
+}
+maybe-alias cat bat
+maybe-alias top htop
+maybe-alias df duf
+maybe-alias ls exa
 alias gm="${HOME}/git/chromium/v8/v8/tools/dev/gm.py"
 alias more=less
 
@@ -85,3 +99,6 @@ if [ -f '${HOME}/google-cloud-sdk/path.zsh.inc' ]; then . '${HOME}/google-cloud-
 
 # The next line enables shell command completion for gcloud.
 if [ -f '${HOME}/google-cloud-sdk/completion.zsh.inc' ]; then . '${HOME}/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
