@@ -6,8 +6,6 @@ function node-no-deprecations {
   export NODE_PENDING_DEPRECATION=0
 }
 
-node-deprecations
-
 function node-options-print {
   echo "NODE_OPTIONS=\"${NODE_OPTIONS}\""
 }
