@@ -25,11 +25,23 @@ function node-options-add {
 
 node-options-reset
 
-# run tests from last PR
-alias ngt='tools/test.py -J `git show --name-only --pretty="" | grep 'test/'`'
-
 # compile and test
-alias mtv="make test -j8 V="
+function node-c-main {
+  CCACHE_NAMESPACE=node-main
+  python3 configure.py --ninja --debug --node-builtin-modules-path=`pwd`
+}
+function node-b-main {
+  CCACHE_NAMESPACE=node-main
+  make test -j6
+}
+function node-c-canary {
+  CCACHE_DISABLE=1
+  python3 configure.py --ninja
+}
+function node-b-canary {
+  CCACHE_DISABLE=1
+  make test -j6
+}
 
 alias gnv8="git node v8 --v8-dir ~/git/chromium/v8/v8"
 
@@ -92,10 +104,3 @@ function nac-v8 {
   curl -L "$1.patch" | git am -3 --directory=deps/v8
 }
 
-function ncu-move {
-  mv "${HOME}/.ncurc" "${HOME}/.ncurc_tmp"
-}
-
-function ncu-restore {
-  mv "${HOME}/.ncurc_tmp" "${HOME}/.ncurc"
-}
