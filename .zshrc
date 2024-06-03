@@ -1,6 +1,3 @@
-# Fig pre block. Keep at the top of this file.
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-
 # Detect whether we are on Mac or Linux
 if [[ "$(uname -s)" = "Darwin" ]]; then
   PLATFORM=mac
@@ -33,14 +30,13 @@ source "${ZSH}/oh-my-zsh.sh"
 export EDITOR="vim"
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
-export VOLTA_HOME="${HOME}/.volta"
-export PATH="${VOLTA_HOME}/bin:${PATH}"
 export PATH="${HOME}/git/chromium/depot_tools:${PATH}"
 export GPG_TTY=$(tty)
 # https://github.com/scarf-sh/scarf-js
 export SCARF_ANALYTICS=false
 # https://nextjs.org/telemetry#how-do-i-opt-out
 export NEXT_TELEMETRY_DISABLED=1
+export CCACHE_NAMESPACE=default
 
 if [[ $PLATFORM = "linux" ]]; then
   export PATH="/usr/lib64/ccache:/usr/lib/ccache:${PATH}"
@@ -50,6 +46,10 @@ else
   export PATH="/opt/homebrew/opt/python/libexec/bin:${PATH}"
   export PATH="/opt/homebrew/opt/openjdk/bin:${PATH}"
 fi
+
+# Must be after homebrew to have precedence over node installed from there.
+export VOLTA_HOME="${HOME}/.volta"
+export PATH="${VOLTA_HOME}/bin:${PATH}"
 #end Setup env
 
 # Command aliases
@@ -61,10 +61,12 @@ function maybe-alias {
     alias "$1"="$2"
   fi
 }
+maybe-alias vi nvim
+maybe-alias vim nvim
 maybe-alias cat bat
 maybe-alias top htop
 maybe-alias df duf
-maybe-alias ls exa
+maybe-alias make gmake
 alias gm="${HOME}/git/chromium/v8/v8/tools/dev/gm.py"
 alias more=less
 
@@ -87,6 +89,8 @@ ulimit -u unlimited
 
 source "${DOTFILES_DIR}/zsh/node.sh"
 
+eval "$(github-copilot-cli alias -- "$0")"
+
 # Optionally run local script
 test -e "${HOME}/.zshrc_local" && source "${HOME}/.zshrc_local"
 
@@ -99,6 +103,3 @@ if [ -f '${HOME}/google-cloud-sdk/path.zsh.inc' ]; then . '${HOME}/google-cloud-
 
 # The next line enables shell command completion for gcloud.
 if [ -f '${HOME}/google-cloud-sdk/completion.zsh.inc' ]; then . '${HOME}/google-cloud-sdk/completion.zsh.inc'; fi
-
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
