@@ -16,7 +16,8 @@
 [help]
 	autocorrect = 1
 [pull]
-	rebase = true
+	merge = true
+	ff = only
 [init]
 	defaultBranch = main
 
