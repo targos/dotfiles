@@ -26,21 +26,17 @@ function node-options-add {
 node-options-reset
 
 # compile and test
-function node-c-main {
-  CCACHE_NAMESPACE=node-main
+function node-configure-main {
+  export CCACHE_NAMESPACE=node-main
   python3 configure.py --ninja --debug --node-builtin-modules-path=`pwd`
 }
-function node-b-main {
-  CCACHE_NAMESPACE=node-main
-  make test -j6
-}
-function node-c-canary {
+function node-configure-canary {
   CCACHE_DISABLE=1
   python3 configure.py --ninja
 }
-function node-b-canary {
-  CCACHE_DISABLE=1
-  make test -j6
+function node-configure-release {
+  CCACHE_NAMESPACE=node-release
+  python3 configure.py --ninja
 }
 
 alias gnv8="git node v8 --v8-dir ~/git/chromium/v8/v8"
