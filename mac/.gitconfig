@@ -4,11 +4,10 @@
 	signingkey = 5AE15600
 [color]
 	ui = true
-[http]
-	cookiefile = ~/.gitcookies
 [core]
 	excludesfile = ~/.gitignore_global
 	pager = diff-so-fancy | less --tabs=4 -RFX
+	autocrlf = input
 [commit]
 	gpgsign = true
 [push]
