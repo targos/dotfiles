@@ -14,12 +14,7 @@ export UPDATE_ZSH_DAYS=7
 ZSH_THEME="ys"
 
 plugins=(
-  dnf
   git
-  gh
-  node
-  npm
-  macos
   z
 )
 
@@ -27,29 +22,43 @@ source "${ZSH}/oh-my-zsh.sh"
 #end Load ZSH
 
 # Setup env
+
+function add-to-path {
+  if [[ -d "$1" && ! ":$PATH:" == *":$1:"* ]]; then
+    export PATH="$1:$PATH"
+  fi
+}
+
 export EDITOR="vim"
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
-export PATH="${HOME}/git/chromium/depot_tools:${PATH}"
+add-to-path "${HOME}/git/chromium/depot_tools"
 export GPG_TTY=$(tty)
+export CCACHE_NAMESPACE=default
+export CCACHE_MAX_SIZE=25GiB
+
+# Disable various spywares.
 # https://github.com/scarf-sh/scarf-js
 export SCARF_ANALYTICS=false
+# https://storybook.js.org/docs/configure/telemetry#how-to-opt-out
+export STORYBOOK_DISABLE_TELEMETRY=1
 # https://nextjs.org/telemetry#how-do-i-opt-out
 export NEXT_TELEMETRY_DISABLED=1
-export CCACHE_NAMESPACE=default
 
 if [[ $PLATFORM = "linux" ]]; then
-  export PATH="/usr/lib64/ccache:/usr/lib/ccache:${PATH}"
+  add-to-path "/usr/lib64/ccache"
+  add-to-path "/usr/lib/ccache"
 else
   eval $(/opt/homebrew/bin/brew shellenv)
-  export PATH="/opt/homebrew/opt/ccache/libexec:${PATH}"
-  export PATH="/opt/homebrew/opt/python/libexec/bin:${PATH}"
-  export PATH="/opt/homebrew/opt/openjdk/bin:${PATH}"
+  add-to-path "/opt/homebrew/opt/ccache/libexec"
+  add-to-path "/opt/homebrew/opt/python/libexec/bin"
+  add-to-path "/Applications/Sublime Text.app/Contents/SharedSupport/bin"
+  export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-23.jdk/Contents/Home"
 fi
 
 # Must be after homebrew to have precedence over node installed from there.
 export VOLTA_HOME="${HOME}/.volta"
-export PATH="${VOLTA_HOME}/bin:${PATH}"
+add-to-path "${VOLTA_HOME}/bin"
 #end Setup env
 
 # Command aliases
@@ -66,6 +75,8 @@ maybe-alias vim nvim
 maybe-alias cat bat
 maybe-alias top htop
 maybe-alias df duf
+maybe-alias find fd
+maybe-alias grep rg
 maybe-alias make gmake
 alias gm="${HOME}/git/chromium/v8/v8/tools/dev/gm.py"
 alias more=less
@@ -76,7 +87,8 @@ fi
 #end Command aliases
 
 # Directory shortcuts
-hash -d -- node="${HOME}/git/nodejs/node"
+hash -d -- git="${HOME}/git"
+hash -d -- nodejs="${HOME}/git/nodejs"
 hash -d -- v8="${HOME}/git/chromium/v8/v8"
 hash -d -- test="${HOME}/test"
 #end Directory shortcuts
@@ -89,7 +101,8 @@ ulimit -u unlimited
 
 source "${DOTFILES_DIR}/zsh/node.sh"
 
-eval "$(github-copilot-cli alias -- "$0")"
+eval "$(gh copilot alias -- zsh)"
+alias '??=ghcs'
 
 # Optionally run local script
 test -e "${HOME}/.zshrc_local" && source "${HOME}/.zshrc_local"
@@ -103,3 +116,5 @@ if [ -f "${HOME}/google-cloud-sdk/path.zsh.inc" ]; then . "${HOME}/google-cloud-
 
 # The next line enables shell command completion for gcloud.
 if [ -f "${HOME}/google-cloud-sdk/completion.zsh.inc" ]; then . "${HOME}/google-cloud-sdk/completion.zsh.inc"; fi
+
+[ -f "${HOME}/.ghcup/env" ] && . "${HOME}/.ghcup/env" # ghcup-env
