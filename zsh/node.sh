@@ -14,16 +14,10 @@ function node-options-clear {
   export NODE_OPTIONS=""
 }
 
-function node-options-reset {
-  export NODE_OPTIONS="--trace-warnings"
-}
-
 function node-options-add {
   export NODE_OPTIONS="${NODE_OPTIONS} $1"
   node-options-print
 }
-
-node-options-reset
 
 # compile and test
 function node-configure-main {
@@ -31,11 +25,15 @@ function node-configure-main {
   python3 configure.py --ninja --debug --node-builtin-modules-path=`pwd`
 }
 function node-configure-canary {
-  CCACHE_DISABLE=1
-  python3 configure.py --ninja
+  export CCACHE_DISABLE=1
+  python3 configure.py --ninja --debug
+}
+function node-configure-v8-update {
+  export CCACHE_NAMESPACE=node-v8-update
+  python3 configure.py --ninja --debug
 }
 function node-configure-release {
-  CCACHE_NAMESPACE=node-release
+  export CCACHE_NAMESPACE=node-release
   python3 configure.py --ninja
 }
 
