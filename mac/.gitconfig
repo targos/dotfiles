@@ -12,6 +12,7 @@
 	gpgsign = true
 [push]
 	default = simple
+	recurseSubmodules = check
 [help]
 	autocorrect = 1
 [pull]

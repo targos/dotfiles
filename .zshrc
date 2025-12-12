@@ -53,7 +53,7 @@ else
   add-to-path "/opt/homebrew/opt/ccache/libexec"
   add-to-path "/opt/homebrew/opt/python/libexec/bin"
   add-to-path "/Applications/Sublime Text.app/Contents/SharedSupport/bin"
-  export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-23.jdk/Contents/Home"
+  export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home"
 fi
 
 # Must be after homebrew to have precedence over node installed from there.
