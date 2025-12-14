@@ -21,7 +21,7 @@ end
 
 function node-configure-main
   set-ccache-namespace node-main
-  python3 configure.py --ninja --debug --node-builtin-modules-path=$(pwd)
+  python3 configure.py --ninja --debug --error-on-warn --node-builtin-modules-path=$(pwd)
 end
 
 function node-configure-release
