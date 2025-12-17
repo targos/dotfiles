@@ -19,7 +19,7 @@ set -gx CCACHE_MAX_SIZE 25GiB
 set -gx CC 'ccache clang'
 set -gx CXX 'ccache clang++'
 
-if test -n $is_linux
+if test -n "$is_linux"
   set -gx LANG en_GB.UTF-8
   set -gx LC_CTYPE en_GB.UTF-8
   set -gx XDG_CURRENT_DESKTOP sway
@@ -51,7 +51,7 @@ if test -d /opt/homebrew
   set -gx JAVA_HOME "/Library/Java/JavaVirtualMachines/temurin-25.jdk/Contents/Home"
 end
 
-if test -n $is_mac
+if test -n "$is_mac"
   fish_add_path "/Applications/Sublime Text.app/Contents/SharedSupport/bin"
 end
 
@@ -82,7 +82,7 @@ abbr grep rg
 abbr more less
 abbr ghcs gh copilot suggest
 
-if test -n $is_mac
+if test -n "$is_mac"
   abbr top htop
   abbr make gmake
 else
