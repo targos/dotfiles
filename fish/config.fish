@@ -80,11 +80,8 @@ abbr df duf
 abbr find fd
 abbr grep rg
 abbr more less
-abbr ghcs gh copilot suggest
+abbr top btop
 
 if test -n "$is_mac"
-  abbr top htop
   abbr make gmake
-else
-  abbr top btop
 end
