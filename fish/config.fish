@@ -5,10 +5,10 @@ end
 # Remove the default greeting message
 set -U fish_greeting
 
-if test -d /home
-  set is_linux true
-else
+if test -d /Users
   set is_mac true
+else
+  set is_linux true
 end
 
 # Setup env
