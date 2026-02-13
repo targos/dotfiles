@@ -38,7 +38,7 @@ end
 # https://github.com/scarf-sh/scarf-js
 set -gx SCARF_ANALYTICS false
 # https://storybook.js.org/docs/configure/telemetry#how-to-opt-out
-set -gx STORYBOOK_DISABLE_TELEMETRY 1
+set -gx STORYBOOK_DISABLE_TELEMETRY true
 # https://nextjs.org/telemetry#how-do-i-opt-out
 set -gx NEXT_TELEMETRY_DISABLED 1
 
